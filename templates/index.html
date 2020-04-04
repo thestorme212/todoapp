@@ -1,21 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 
-   {% for n in alltaski %}
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <i class="material-icons circle red">check_circle</i>
-                    <span class="title" name="todo" type="text" >{{ n.0 }}</span>
-                    <p>{{ n.1 }} <br>
-                    </p>
-                    <div>
-                       <a href="{% url 'update_task' n.0  %}" class="secondary-content"><i class="material-icons">edit</i></a>
-                    </div>
-                    <div>
-                        <a  href="#"><i style=" color :#f44336;margin-right: 21px;" class=" secondary-content material-icons">delete</i></a>
-                    </div>
-                </li>
-            </ul>
+    {% for n in alltaski %}
+        <ul class="collection">
+            <li class="collection-item avatar">
+                <i onclick="disp()" class="material-icons circle  red">check_circle</i>
+                <span class="title" name="todo" type="text">{{ n.0 }}</span>
+                <p>{{ n.1 }} <br>
+                </p>
+                <div>
+                    <a href="{% url 'update_task' n.0 %}" class="secondary-content"><i
+                            class="material-icons">edit</i></a>
+                </div>
+                <div>
+                    <a href="{% url 'delete_task' n.0 %}"><i style=" color :#f44336;margin-right: 21px;"
+                                                             class=" secondary-content material-icons">delete</i></a>
+                </div>
+            </li>
+        </ul>
     {% endfor %}
-
+    <script>
+        function disp() {
+            alert('holaaa')
+        }
+    </script>
 {% endblock content %}
